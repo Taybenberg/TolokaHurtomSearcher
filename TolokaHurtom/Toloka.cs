@@ -1,6 +1,7 @@
-﻿using System.Net;
+﻿using Newtonsoft.Json;
+using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
-using Newtonsoft.Json;
 
 namespace TolokaHurtom
 {
@@ -25,16 +26,16 @@ namespace TolokaHurtom
             public override string ToString()
             {
                 return
-                    "Id: " + id +
-                    "\nПосилання: " + link +
-                    "\nНазва: " + title +
-                    "\nФорум: " + forum_name +
-                    "\nТолока: " + forum_parent +
-                    "\nКоментарів: " + comments +
-                    "\nРозмір: " + size +
-                    "\nРоздають: " + seeders +
-                    "\nЗавантажують: " + leechers +
-                    "\nЗавантажень: " + complete + "\n";
+                    $"Id: {id}" +
+                    $"\nПосилання: {link}" +
+                    $"\nНазва: {title}" +
+                    $"\nФорум: {forum_name}" +
+                    $"\nТолока: {forum_parent}" +
+                    $"\nКоментарів: {comments}" +
+                    $"\nРозмір: {size}" +
+                    $"\nРоздають: {seeders}" +
+                    $"\nЗавантажують: {leechers}" +
+                    $"\nЗавантажень: {complete}";
             }
         }
 
@@ -86,12 +87,12 @@ namespace TolokaHurtom
 
         public string ToString(string separator = null)
         {
-            string res = "";
+            StringBuilder res = new StringBuilder();
 
             foreach (var r in result)
-                res += r.ToString() + separator;
+                res.Append($"{r}{separator}");
 
-            return res;
+            return res.ToString();
         }
 
         public string[] ToStringArray()
