@@ -10,44 +10,17 @@ public class Toloka
 
     private Hurtom[] result;
 
-    public class Hurtom
-    {
-        public string id { get; set; }
-        public string link { get; set; }
-        public string title { get; set; }
-        public string forum_name { get; set; }
-        public string forum_parent { get; set; }
-        public string comments { get; set; }
-        public string size { get; set; }
-        public string seeders { get; set; }
-        public string leechers { get; set; }
-        public string complete { get; set; }
-
-        public override string ToString()
-        {
-            return
-                $"Id: {id}" +
-                $"\nПосилання: {link}" +
-                $"\nНазва: {title}" +
-                $"\nФорум: {forum_name}" +
-                $"\nТолока: {forum_parent}" +
-                $"\nКоментарів: {comments}" +
-                $"\nРозмір: {size}" +
-                $"\nРоздають: {seeders}" +
-                $"\nЗавантажують: {leechers}" +
-                $"\nЗавантажень: {complete}";
-        }
-    }
-
     public Toloka(string search1)
     {
         using (var webClient = new WebClient())
         {
+            webClient.Encoding = Encoding.UTF8;
+
             webClient.Headers.Add("user-agent", UserAgent);
             webClient.QueryString.Add("search", Regex.Escape(search1));
             webClient.UseDefaultCredentials = true;
 
-            fillArray(webClient.DownloadString(TolokaUrl));
+            result = JsonConvert.DeserializeObject<Hurtom[]>(webClient.DownloadString(TolokaUrl));
         }
     }
 
@@ -55,12 +28,14 @@ public class Toloka
     {
         using (var webClient = new WebClient())
         {
+            webClient.Encoding = Encoding.UTF8;
+
             webClient.Headers.Add("user-agent", UserAgent);
             webClient.QueryString.Add("search", Regex.Escape(search1));
             webClient.QueryString.Add("search2", Regex.Escape(search2));
             webClient.UseDefaultCredentials = true;
 
-            fillArray(webClient.DownloadString(TolokaUrl));
+            result = JsonConvert.DeserializeObject<Hurtom[]>(webClient.DownloadString(TolokaUrl));
         }
     }
 
@@ -68,20 +43,16 @@ public class Toloka
     {
         using (var webClient = new WebClient())
         {
+            webClient.Encoding = Encoding.UTF8;
+
             webClient.Headers.Add("user-agent", UserAgent);
             webClient.QueryString.Add("search", Regex.Escape(search1));
             webClient.QueryString.Add("search2", Regex.Escape(search2));
             webClient.QueryString.Add("search3", Regex.Escape(search3));
             webClient.UseDefaultCredentials = true;
 
-            fillArray(webClient.DownloadString(TolokaUrl));
+            result = JsonConvert.DeserializeObject<Hurtom[]>(webClient.DownloadString(TolokaUrl));
         }
-    }
-
-    private void fillArray(string query)
-    {
-        string jsonString = WebUtility.HtmlDecode(Regex.Unescape(query));
-        result = JsonConvert.DeserializeObject<Hurtom[]>(jsonString);
     }
 
     public Hurtom[] ToArray()
