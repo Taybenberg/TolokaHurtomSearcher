@@ -15,6 +15,8 @@ namespace HurtomBot
 
         public HurtomBot(string TelegramApiToken)
         {
+            this.TelegramApiToken = TelegramApiToken;
+
             var Bot = new TelegramBotClient(TelegramApiToken);
 
             Bot.SetWebhookAsync("");
