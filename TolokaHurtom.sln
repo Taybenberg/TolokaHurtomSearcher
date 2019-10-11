@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2050
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TolokaHurtom", "TolokaHurtom\TolokaHurtom.csproj", "{C40EBE04-BFD0-43A8-A3A1-DEE196F17BE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TolokaHurtom", "TolokaHurtom\TolokaHurtom.csproj", "{C40EBE04-BFD0-43A8-A3A1-DEE196F17BE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurtomBotRunner", "HurtomBotRunner\HurtomBotRunner.csproj", "{38044B6C-CA87-4CFD-9902-6AF859B39E11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurtomBot", "HurtomBot\HurtomBot.csproj", "{3DD5136A-6D53-448C-8102-C8AC37C61E28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C40EBE04-BFD0-43A8-A3A1-DEE196F17BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C40EBE04-BFD0-43A8-A3A1-DEE196F17BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C40EBE04-BFD0-43A8-A3A1-DEE196F17BE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38044B6C-CA87-4CFD-9902-6AF859B39E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38044B6C-CA87-4CFD-9902-6AF859B39E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38044B6C-CA87-4CFD-9902-6AF859B39E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38044B6C-CA87-4CFD-9902-6AF859B39E11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD5136A-6D53-448C-8102-C8AC37C61E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD5136A-6D53-448C-8102-C8AC37C61E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD5136A-6D53-448C-8102-C8AC37C61E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD5136A-6D53-448C-8102-C8AC37C61E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
