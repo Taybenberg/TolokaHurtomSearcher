@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TolokaHurtom", "TolokaHurtom\TolokaHurtom.csproj", "{C40EBE04-BFD0-43A8-A3A1-DEE196F17BE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurtomBotRunner", "HurtomBotRunner\HurtomBotRunner.csproj", "{38044B6C-CA87-4CFD-9902-6AF859B39E11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurtomBotRunner", "HurtomBotRunner\HurtomBotRunner.csproj", "{38044B6C-CA87-4CFD-9902-6AF859B39E11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HurtomBot", "HurtomBot\HurtomBot.csproj", "{3DD5136A-6D53-448C-8102-C8AC37C61E28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HurtomBot", "HurtomBot\HurtomBot.csproj", "{3DD5136A-6D53-448C-8102-C8AC37C61E28}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7AEDE7BD-7B55-41B9-81DA-105BA306C989}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{3DD5136A-6D53-448C-8102-C8AC37C61E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DD5136A-6D53-448C-8102-C8AC37C61E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DD5136A-6D53-448C-8102-C8AC37C61E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AEDE7BD-7B55-41B9-81DA-105BA306C989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEDE7BD-7B55-41B9-81DA-105BA306C989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AEDE7BD-7B55-41B9-81DA-105BA306C989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AEDE7BD-7B55-41B9-81DA-105BA306C989}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
