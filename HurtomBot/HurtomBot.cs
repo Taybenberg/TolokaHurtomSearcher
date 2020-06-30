@@ -11,13 +11,15 @@ namespace HurtomBot
 {
     public class HurtomBot
     {
-        readonly string TelegramApiToken;
+        private TelegramBotClient Bot;
+
+        public void Start() => Bot.StartReceiving();
+
+        public void Stop() => Bot.StopReceiving();
 
         public HurtomBot(string TelegramApiToken)
         {
-            this.TelegramApiToken = TelegramApiToken;
-
-            var Bot = new TelegramBotClient(TelegramApiToken);
+            Bot = new TelegramBotClient(TelegramApiToken);
 
             Bot.SetWebhookAsync("");
 
@@ -83,8 +85,6 @@ namespace HurtomBot
                     }
                 }
             };
-
-            Bot.StartReceiving();
         }
     }
 }
