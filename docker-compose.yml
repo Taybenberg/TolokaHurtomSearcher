@@ -6,3 +6,10 @@ services:
     build:
       context: .
       dockerfile: HurtomBotRunner/Dockerfile
+
+  hurtombotworker:
+    image: ${DOCKER_REGISTRY-}hurtombotworker
+    build:
+      context: .
+      dockerfile: HurtomBotWorker/Dockerfile
+

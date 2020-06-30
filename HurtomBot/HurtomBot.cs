@@ -11,19 +11,19 @@ namespace HurtomBot
 {
     public class HurtomBot
     {
-        private TelegramBotClient Bot;
+        private TelegramBotClient bot;
 
-        public void Start() => Bot.StartReceiving();
+        public void Start() => bot.StartReceiving();
 
-        public void Stop() => Bot.StopReceiving();
+        public void Stop() => bot.StopReceiving();
 
         public HurtomBot(string TelegramApiToken)
         {
-            Bot = new TelegramBotClient(TelegramApiToken);
+            bot = new TelegramBotClient(TelegramApiToken);
 
-            Bot.SetWebhookAsync("");
+            bot.SetWebhookAsync("");
 
-            Bot.OnInlineQuery += async (object updobj, InlineQueryEventArgs iqea) =>
+            bot.OnInlineQuery += async (object updobj, InlineQueryEventArgs iqea) =>
             {
                 if (string.IsNullOrEmpty(iqea.InlineQuery.Query) || string.IsNullOrWhiteSpace(iqea.InlineQuery.Query))
                     return;
@@ -51,11 +51,11 @@ namespace HurtomBot
                         inline[i].ThumbUrl = toloka[i].link;
                     }
 
-                    await Bot.AnswerInlineQueryAsync(iqea.InlineQuery.Id, inline);
+                    await bot.AnswerInlineQueryAsync(iqea.InlineQuery.Id, inline);
                 }
             };
 
-            Bot.OnMessage += async (object updobj, MessageEventArgs mea) =>
+            bot.OnMessage += async (object updobj, MessageEventArgs mea) =>
             {
                 var message = mea.Message;
 
@@ -71,16 +71,16 @@ namespace HurtomBot
                     switch (command)
                     {
                         case "start":
-                            await Bot.SendTextMessageAsync(ChatId, "Вітаю! Я @HurtomBot!\nНадішліть мені текстове повідомлення щоб знайти українські торренти.\nНатисніть '/', щоби обрати команду.");
+                            await bot.SendTextMessageAsync(ChatId, "Вітаю! Я @HurtomBot!\nНадішліть мені текстове повідомлення щоб знайти українські торренти.\nНатисніть '/', щоби обрати команду.");
                             break;
 
                         case "sendtorrent":
-                            await Bot.SendTextMessageAsync(ChatId, "Натисніть кнопку та оберіть чат до якого хочете надіслати торрент.", replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithSwitchInlineQuery("Надіслати") }));
+                            await bot.SendTextMessageAsync(ChatId, "Натисніть кнопку та оберіть чат до якого хочете надіслати торрент.", replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithSwitchInlineQuery("Надіслати") }));
                             break;
 
                         default:
                             foreach (var torrent in new TolokaHurtom.Toloka(command).ToArray())
-                                Bot.SendTextMessageAsync(ChatId, $"<b>{torrent.title}</b>\n{torrent.size} | Роздають: {torrent.seeders} | Завантажують: {torrent.leechers}\n<i>{torrent.forum_parent} / {torrent.forum_parent}</i>\n{torrent.link}", ParseMode.Html);
+                                bot.SendTextMessageAsync(ChatId, $"<b>{torrent.title}</b>\n{torrent.size} | Роздають: {torrent.seeders} | Завантажують: {torrent.leechers}\n<i>{torrent.forum_parent} / {torrent.forum_parent}</i>\n{torrent.link}", ParseMode.Html);
                             break;
                     }
                 }
