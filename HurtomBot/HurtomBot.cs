@@ -36,7 +36,7 @@ namespace HurtomBot
 
                     for (int i = 0; i < toloka.Length; i++)
                     {
-                        var content = new InputTextMessageContent($"<b>{toloka[i].title}</b>\n{toloka[i].size} | Роздають: {toloka[i].seeders} | Завантажують: {toloka[i].leechers}\n<i>{toloka[i].forum_parent} / {toloka[i].forum_name}</i>\n{toloka[i].link}");
+                        var content = new InputTextMessageContent($"<b>{toloka[i].title}</b>\n\n{toloka[i].size} | Роздають: {toloka[i].seeders} | Завантажують: {toloka[i].leechers}\n\n<i>{toloka[i].forum_parent} / {toloka[i].forum_name}</i>\n\n{toloka[i].link}");
                         content.ParseMode = ParseMode.Html;
 
                         inline[i] = new InlineQueryResultArticle(
@@ -45,8 +45,7 @@ namespace HurtomBot
                             content);
 
                         inline[i].Description =
-                            toloka[i].size + " | Роздають: " + toloka[i].seeders + " | Завантажують: " + toloka[i].leechers +
-                            "\n" + toloka[i].forum_parent + " / " + toloka[i].forum_name;
+                            toloka[i].size + " | Роздають: " + toloka[i].seeders + " | Завантажують: " + toloka[i].leechers;
 
                         inline[i].ThumbUrl = toloka[i].link;
                     }
@@ -80,7 +79,7 @@ namespace HurtomBot
 
                         default:
                             foreach (var torrent in new TolokaHurtom.Toloka(command).ToArray())
-                                bot.SendTextMessageAsync(ChatId, $"<b>{torrent.title}</b>\n{torrent.size} | Роздають: {torrent.seeders} | Завантажують: {torrent.leechers}\n<i>{torrent.forum_parent} / {torrent.forum_name}</i>\n{torrent.link}", ParseMode.Html);
+                                bot.SendTextMessageAsync(ChatId, $"<b>{torrent.title}</b>\n\n{torrent.size} | Роздають: {torrent.seeders} | Завантажують: {torrent.leechers}\n\n<i>{torrent.forum_parent} / {torrent.forum_name}</i>\n\n{torrent.link}", ParseMode.Html);
                             break;
                     }
                 }
