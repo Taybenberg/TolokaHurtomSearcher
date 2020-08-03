@@ -75,7 +75,7 @@ namespace HurtomBot
                             break;
 
                         case "sendtorrent":
-                            await bot.SendTextMessageAsync(ChatId, "Натисніть кнопку та оберіть чат до якого хочете надіслати торрент.", replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithSwitchInlineQuery("Надіслати") }));
+                            await bot.SendTextMessageAsync(ChatId, "Оберіть чат, до якого хочете надіслати торрент.", replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithSwitchInlineQuery("Надіслати") }));
                             break;
 
                         default:
