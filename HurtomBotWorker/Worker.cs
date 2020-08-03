@@ -24,7 +24,7 @@ namespace HurtomBotWorker
 
             var regex = new Regex("\"TelegramBotApiToken\" value=\"(.+)\"");
 
-            var match = regex.Match(File.ReadAllText("MazeBotWorker.dll.config"));
+            var match = regex.Match(File.ReadAllText("HurtomBotWorker.dll.config"));
 
             bot = new HurtomBot.HurtomBot(match.Groups[1].Value);
         }
