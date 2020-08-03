@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -12,9 +14,19 @@ namespace HurtomBotWorker
     {
         private HurtomBot.HurtomBot bot;
 
-        public Worker(string telegramBotApiToken)
+        public Worker()
         {
-            bot = new HurtomBot.HurtomBot(telegramBotApiToken);
+            /*  
+             *  Хостинг AppHarbor записує конфігураційні змінні до файлу .config, 
+             *  який більше не використовується в .Net Core
+             *  Через це доводиться діставати токен за допомогою Regex-виразу
+             */
+
+            var regex = new Regex("\"TelegramBotApiToken\" value=\"(.+)\"");
+
+            var match = regex.Match(File.ReadAllText("MazeBotWorker.dll.config"));
+
+            bot = new HurtomBot.HurtomBot(match.Groups[1].Value);
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
