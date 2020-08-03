@@ -80,7 +80,7 @@ namespace HurtomBot
 
                         default:
                             foreach (var torrent in new TolokaHurtom.Toloka(command).ToArray())
-                                bot.SendTextMessageAsync(ChatId, $"<b>{torrent.title}</b>\n{torrent.size} | Роздають: {torrent.seeders} | Завантажують: {torrent.leechers}\n<i>{torrent.forum_parent} / {torrent.forum_parent}</i>\n{torrent.link}", ParseMode.Html);
+                                bot.SendTextMessageAsync(ChatId, $"<b>{torrent.title}</b>\n{torrent.size} | Роздають: {torrent.seeders} | Завантажують: {torrent.leechers}\n<i>{torrent.forum_parent} / {torrent.forum_name}</i>\n{torrent.link}", ParseMode.Html);
                             break;
                     }
                 }
