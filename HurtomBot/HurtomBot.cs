@@ -71,7 +71,7 @@ namespace HurtomBot
                     switch (command)
                     {
                         case "start":
-                            await bot.SendTextMessageAsync(ChatId, "Вітаю! Я @HurtomBot!\nНадішліть мені текстове повідомлення щоб знайти українські торренти.\nНатисніть '/', щоби обрати команду.");
+                            await bot.SendTextMessageAsync(ChatId, "Вітаю! Я @HurtomBot!\nНапишіть, що ви хочете знайти на Гуртом, і я знайду для вас українські торренти.\nНатисніть '/', щоби обрати команду.");
                             break;
 
                         case "sendtorrent":
